@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crave Kitchen | Cloud Kitchen & Street Food</title>
+  
+  <!-- Google Fonts & Font Awesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header>
+    <div class="logo">
+      <i class="fa-solid fa-fire-flame-curved"></i> CRAVE<span>KITCHEN</span>
+    </div>
+    <div class="header-right">
+      <div class="online-badge">
+        <span class="pulse-dot"></span> 100% Online Cloud Kitchen
+      </div>
+      <button class="cart-trigger-btn" onclick="toggleCart()">
+        <i class="fa-solid fa-bag-shopping"></i>
+        <span>Cart</span>
+        <span class="cart-badge" id="cart-badge">0</span>
+      </button>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <div class="hero-tag"><i class="fa-solid fa-bolt"></i> Fast Home Delivery</div>
+      <h1>Crave-Worthy Food <br><span class="highlight">Directly To Your Door</span></h1>
+      <p>No dining halls, no physical wait times. Premium Biryani, Korma, Gourmet Burgers, Pizzas, and Crispy Fries cooked fresh on order!</p>
+      
+      <!-- Deals Carousel -->
+      <div class="deals-carousel">
+        <div class="deal-card">
+          <div class="deal-info">
+            <span class="deal-badge">HOT COMBO</span>
+            <h3>Biryani + Zinger Combo</h3>
+            <p>1x Chicken Biryani, 1x Zinger Burger, 1x Regular Fries & Drink</p>
+            <div class="deal-price">Rs. 890 <span class="old-price">Rs. 1050</span></div>
+          </div>
+          <button class="add-deal-btn" onclick="addComboToCart()">Add Deal</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Menu Container -->
+  <main class="menu-container" id="menu">
+    <div class="menu-header">
+      <h2>Explore Our Menu</h2>
+      <!-- Search Bar -->
+      <div class="search-box">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input type="text" id="search-input" placeholder="Search biryani, pizza, fries..." onkeyup="filterMenu()">
+      </div>
+    </div>
+
+    <!-- Category Filter Pills -->
+    <div class="category-pills">
+      <button class="pill active" onclick="filterCategory('all', event)">🔥 All Items</button>
+      <button class="pill" onclick="filterCategory('desi', event)">🍲 Desi Specials</button>
+      <button class="pill" onclick="filterCategory('fastfood', event)">🍔 Fast Food</button>
+      <button class="pill" onclick="filterCategory('fries', event)">🍟 Fries & Sides</button>
+      <button class="pill" onclick="filterCategory('drinks', event)">🥤 Beverages</button>
+    </div>
+
+    <!-- Dynamic Menu Grid -->
+    <div class="menu-grid" id="menu-grid">
+      <!-- Generated via script.js -->
+    </div>
+  </main>
+
+  <!-- Cart Slide-Over Drawer -->
+  <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+  <aside class="cart-drawer" id="cart-drawer">
+    <div class="drawer-header">
+      <h3><i class="fa-solid fa-cart-shopping"></i> Your Order</h3>
+      <button class="close-btn" onclick="toggleCart()">&times;</button>
+    </div>
+
+    <div class="cart-items" id="cart-items">
+      <!-- Generated via script.js -->
+    </div>
+
+    <div class="cart-summary" id="cart-summary">
+      <div class="summary-line">
+        <span>Subtotal</span>
+        <span id="subtotal-val">Rs. 0</span>
+      </div>
+      <div class="summary-line">
+        <span>Delivery Fee</span>
+        <span id="delivery-val">Rs. 100</span>
+      </div>
+      <div class="summary-line total">
+        <span>Total</span>
+        <span id="total-val">Rs. 100</span>
+      </div>
+
+      <!-- Delivery Details Inputs -->
+      <div class="checkout-fields">
+        <input type="text" id="cust-name" placeholder="Your Name" required>
+        <input type="text" id="cust-address" placeholder="Delivery Address / Area" required>
+        <input type="text" id="cust-notes" placeholder="Special Instructions (e.g., extra spicy)">
+      </div>
+
+      <button class="whatsapp-checkout-btn" onclick="checkoutWhatsApp()">
+        <i class="fa-brands fa-whatsapp"></i> Confirm & Order via WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast">
+    <i class="fa-solid fa-circle-check"></i> <span id="toast-text">Item added to cart!</span>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo"><i class="fa-solid fa-fire-flame-curved"></i> CRAVE<span>KITCHEN</span></div>
+      <p>Operating exclusively as an online cloud kitchen. Freshly prepared, hygienically packed, and delivered straight to you.</p>
+      <p class="copyright">&copy; 2026 Crave Kitchen. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
